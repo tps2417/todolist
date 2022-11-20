@@ -6,8 +6,10 @@ export const Todo = () => {
   const [text, setText] = useState("");
 
   const inputText = (event) => {
-    setText(event.target.value);
+    // setText(event.target.value);
   };
+
+  const todoListItem = ["買い物に行く", "読書をする", "掃除する"];
 
   return (
     <div style={styles.todoContainer}>
@@ -17,7 +19,10 @@ export const Todo = () => {
       </div>
 
       <div style={styles.card}>
-        <Card />
+        {todoListItem.map(function (value) {
+          console.log("value;", value);
+          return <Card title={value} />;
+        })}
       </div>
     </div>
   );

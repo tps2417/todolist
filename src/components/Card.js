@@ -1,9 +1,10 @@
 import React from "react";
 
-export const Card = () => {
+export const Card = (props) => {
+  console.log("props:", props);
   return (
     <div style={styles.item}>
-      <div>card</div>
+      <div>{props.title}</div>
     </div>
   );
 };
