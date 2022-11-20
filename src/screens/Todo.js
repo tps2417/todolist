@@ -4,22 +4,27 @@ import { Card } from "../components/Card";
 export const Todo = () => {
   // const [state, setState] = useState("");
   const [text, setText] = useState("");
+  const [todoList, setTodoList] = useState([]);
 
   const inputText = (event) => {
-    // setText(event.target.value);
+    setText(event.target.value);
   };
 
-  const todoListItem = ["買い物に行く", "読書をする", "掃除する"];
+  const addTask = () => {
+    const copyTodoList = [...todoList];
+    copyTodoList.push(text);
+    setTodoList(copyTodoList);
+  };
 
   return (
     <div style={styles.todoContainer}>
       <div>
         <input id="text" onChange={(e) => inputText(e)}></input>
-        <button>＋</button>
+        <button onClick={addTask}>＋</button>
       </div>
 
       <div style={styles.card}>
-        {todoListItem.map(function (value) {
+        {todoList.map(function (value) {
           console.log("value;", value);
           return <Card title={value} />;
         })}
