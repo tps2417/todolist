@@ -7,6 +7,7 @@ export const Todo = () => {
   const [todoList, setTodoList] = useState([]);
 
   const inputText = (event) => {
+    console.log(event);
     setText(event.target.value);
   };
 
@@ -16,6 +17,22 @@ export const Todo = () => {
     setTodoList(copyTodoList);
   };
 
+  // console.log("todoList:", todoList);
+
+  const deleteTask = (index) => {
+    console.log("index:", index);
+    const todoListFilter = todoList.filter((todo, todoIndex) => {
+      console.log(todoList);
+      return todoIndex !== index;
+    });
+    setTodoList(todoListFilter);
+    console.log(todoListFilter);
+  };
+  // console.log(todoListFilter);
+  // setTodoList(todoListFilter);
+
+  // console.log("todoListFilter:", todoListFilter);
+
   return (
     <div style={styles.todoContainer}>
       <div>
@@ -24,9 +41,9 @@ export const Todo = () => {
       </div>
 
       <div style={styles.card}>
-        {todoList.map(function (value) {
-          console.log("value;", value);
-          return <Card title={value} />;
+        {todoList.map((todo, index) => {
+          // console.log("ふ", index);
+          return <Card onClick={() => deleteTask(index)} title={todo} />;
         })}
       </div>
     </div>
