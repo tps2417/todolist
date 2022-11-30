@@ -15,6 +15,7 @@ export const Todo = () => {
     const copyTodoList = [...todoList];
     copyTodoList.push(text);
     setTodoList(copyTodoList);
+    setText("");
   };
 
   // console.log("todoList:", todoList);
@@ -36,7 +37,11 @@ export const Todo = () => {
   return (
     <div style={styles.todoContainer}>
       <div>
-        <input id="text" onChange={(e) => inputText(e)}></input>
+        <input
+          value={text}
+          placeholder="ここに入力"
+          onChange={(e) => inputText(e)}
+        ></input>
         <button onClick={addTask}>＋</button>
       </div>
 
