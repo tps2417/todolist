@@ -36,13 +36,16 @@ export const Todo = () => {
 
   return (
     <div style={styles.todoContainer}>
-      <div>
+      <div style={styles.inputArea}>
         <input
+          style={styles.form}
           value={text}
           placeholder="ここに入力"
           onChange={(e) => inputText(e)}
         ></input>
-        <button onClick={addTask}>＋</button>
+        <button style={styles.plus} onClick={addTask}>
+          ＋
+        </button>
       </div>
 
       <div style={styles.card}>
@@ -65,10 +68,42 @@ const styles = {
     padding: 40,
   },
 
+  inputArea: {
+    display: "flex",
+    justifyContent: "center",
+    // margin: 0,
+    // marginRight: "auto",
+    // marginLeft: "auto",
+    // // backgroundColor: "black",
+  },
+
+  plus: {
+    width: "30px",
+    height: "30px",
+    lineHeight: "30px",
+    backgroundColor: "pink",
+    borderRadius: "50%",
+    textalign: "center",
+    // fontSize: "30px",
+  },
+
+  form: {
+    // backgroundColor: "red",
+    // textAlign: "center",
+    borderTop: "none",
+    borderRight: "none",
+    borderLeft: "none",
+    // textAlign: "center",
+    width: 200,
+    height: 30,
+  },
+
   card: {
     backgroundColor: "lightgrey",
     height: 350,
     width: 300,
     marginTop: 60,
+    marginRight: "auto",
+    marginLeft: "auto",
   },
 };
